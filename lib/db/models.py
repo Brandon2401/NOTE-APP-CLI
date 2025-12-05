@@ -6,8 +6,8 @@ DATABASE_URL = "sqlite:///notes.db"
 
 Base = declarative_base()
 
-class Note (Base):
-    __tablename__="notes"
+class Note(Base):
+    __tablename__ = "notes"
 
     id = Column(Integer, primary_key=True)
     title = Column(String, nullable=False)
@@ -17,8 +17,11 @@ class Note (Base):
     updated_at = Column(DateTime, default=datetime.now, onupdate=datetime.now)
 
     def __repr__(self):
-        return f"<Note{self.id}:{self.title}>"
-    
-    engine = create_engine(DATABASE_URL)
-    Session = sessionmaker(bind=engine)
-    session = Session()
+        return f"<Note {self.id}: {self.title}>"
+
+
+
+
+engine = create_engine(DATABASE_URL)
+Session = sessionmaker(bind=engine)
+session = Session()

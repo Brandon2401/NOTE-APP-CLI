@@ -1,4 +1,4 @@
-from db.models import session, Note
+from lib.db.models import session, Note
 from datetime import datetime
 
 def create_note():
